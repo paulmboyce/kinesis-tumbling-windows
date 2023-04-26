@@ -8,6 +8,7 @@ function isEmpty(obj) {
 }
 
 exports.handler = async (event) => {
+  console.debug("Received Event", event);
   // Save aggregation result in the final invocation
   if (event.isFinalInvokeForWindow) {
     console.log("Final: ", event);
@@ -43,6 +44,7 @@ exports.handler = async (event) => {
       "ascii"
     );
     const item = JSON.parse(payload);
+    console.debug("payload", payload);
 
     let value = item.Distance;
     console.log("Adding: ", value);
